@@ -3,8 +3,7 @@
  * In this program i learn how to make a basic
  * array of size 5, how to perform basic commands such
  * as enQueue() and deQueue().
- */
-package Queue;
+*/
 
 public class Queue1{
     int[] queue = new int[5];
