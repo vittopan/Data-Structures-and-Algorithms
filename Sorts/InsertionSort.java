@@ -18,9 +18,8 @@ public class InsertionSort {
 
     public static void main(String[] args) {
         int[] n = { 1, 5, 9, 5, 3, 7, 69, 43, 2, 10 };
-        System.out.println("Before" + Arrays.toString(n));
+        System.out.println("Before:" + Arrays.toString(n));
         sorts(n);
-        System.out.println("After" + Arrays.toString(n));
-
+        System.out.println("After:" + Arrays.toString(n));
     }
 }
