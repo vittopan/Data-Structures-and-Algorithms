@@ -5,47 +5,49 @@
  * as enQueue() and deQueue().
 */
 
-public class Queue1{
+public class Queue1 {
     int[] queue = new int[5];
     int size;
     int front;
     int rear;
 
-    public void enQueue(int data){
-        if(!isFull()){
+    public void enQueue(int data) {
+        if (!isFull()) {
             queue[rear] = data;
-            rear = (rear + 1)%5;
+            rear = (rear + 1) % 5;
             size++;
-        }else{
-            System.out.println("Queue is Full");        
+        } else {
+            System.out.println("Queue is Full");
         }
     }
-    public void show(){
-        for(int i = 0;i<size;i++){
-            System.out.println(queue[(front + i)%5] + " ");
+
+    public void show() {
+        for (int i = 0; i < size; i++) {
+            System.out.println(queue[(front + i) % 5] + " ");
         }
     }
-    public int deQueue(){
+
+    public int deQueue() {
         int data = queue[front];
-        if(!isEmpty()){
-            front = (front+1)%5;
+        if (!isEmpty()) {
+            front = (front + 1) % 5;
             size--;
-        }else{
+        } else {
             System.out.println("Queue is Empty");
         }
-        
         return data;
     }
-    public boolean isEmpty(){
+
+    public boolean isEmpty() {
         return getSize() == 0;
     }
-    public int getSize(){
+
+    public int getSize() {
         return size;
     }
-    public boolean isFull(){
+
+    public boolean isFull() {
         return getSize() == 5;
     }
-
-
 
 }

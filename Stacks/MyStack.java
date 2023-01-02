@@ -1,51 +1,49 @@
 package Stacks;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Stack;
 
-/* Implement a stack using a queue. */
-class MyStack {
-    private Queue<Integer> queue;
+public class MyStack {
+    private Stack<Integer> stack;
 
     public MyStack() {
-        queue = new LinkedList<Integer>();
+        stack = new Stack<Integer>();
     }
 
-    public void push(int x) {
-        queue.add(x);
+    public void add(int data) {
+        stack.push(data);
     }
 
-    public void pop() {
-        Queue<Integer> temp = new LinkedList<Integer>();
-        int counter = 0;
-        while (!queue.isEmpty()) {
-            temp.add(queue.poll());
-            counter++;
+    public void sort() {
+        Stack<Integer> s = new Stack<Integer>();
+        s.push(stack.pop());
+        while (!stack.isEmpty()) {
+            int temp = stack.pop();
+            while (!s.isEmpty() && s.peek() > temp) {
+                stack.push(s.pop());
+            }
+            s.push(temp);
         }
-        while (counter > 1) {
-            queue.add(temp.poll());
-            counter--;
+        while (!s.isEmpty()) {
+            stack.push(s.pop());
         }
     }
 
-    public int top() {
-        Queue<Integer> temp = new LinkedList<Integer>();
-        int counter = 0;
-        while (!queue.isEmpty()) {
-            temp.add(queue.poll());
-            counter++;
+    public void show() {
+        for (int i : stack) {
+            System.out.println(i);
         }
-        while (counter > 1) {
-            queue.add(temp.poll());
-            counter--;
-        }
-        int topInteger = temp.poll();
-        queue.add(topInteger);
-        return topInteger;
     }
 
-    public boolean empty() {
-        return queue.isEmpty();
+    public static void main(String[] args) {
+        MyStack a = new MyStack();
+        a.add(10);
+        a.add(9);
+        a.add(39);
+        a.add(32);
+        a.add(2);
+        a.add(19);
+        a.sort();
+        a.show();
     }
 
 }
