@@ -1,3 +1,4 @@
+import CITS2200.IllegalValue;
 /*
  * This is a simple program in my introduction to Queue's
  * In this program i learn how to make a basic
